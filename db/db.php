@@ -17,7 +17,7 @@ $baglanti = @mysqli_connect($host,$username,$password,$dbName);
 if(!$baglanti){
     die("Bağlantı hatası");
 }else{
-    echo "Bağlantı Başarılı";
+   
 };
 
 if(!mysqli_set_charset($baglanti ,"utf8mb4")){
