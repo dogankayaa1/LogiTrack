@@ -85,4 +85,7 @@ kaydedilmektedir.
 -- Google antigravity ile html şablonu oluşturdum  stok&ürün yönetim projesi oldu projede tailwindcss kullanmaktan vazgevtim html cok karmaşık oluyordum düzeltme yöntemleri var dı ama bootstrap i dahil etmek istedim. Css müdahalesi daha derli toplu oluyor ve html içerisinde class karmaşası olmuyor.
 --Bu karar sayesinde daha okunabilir ve daha temiz bir arayüz ile birlikte proje şablonu oluştu.
 --- yeni geliştirme ve kodların ön yüze eklenmesi (Tema şablon tasarımı dahil) 45:00 Daika;
- 
+
+7. Admin panelinde yer alan ayarlar sayfasının dinamik hale getirilmesi.
+-post işlemleri için fonksiyon hazırlanacak.
+-Admin panelinde yer alan ayarlar bölümünde olan  Mağaza / Firma Bilgileri bölümünde veri tabanında yer alan verinin güncellenmesi için gerekli fonksiyon sorgular kodlar yazıldı test edildi. Fonksiyon sorunsuz bir şekilde çalışıyor.

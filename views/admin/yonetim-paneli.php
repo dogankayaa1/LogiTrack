@@ -272,7 +272,7 @@ if(empty($_SESSION["eposta"]) && empty($_SESSION["yetki"]) !== "admin" ){
                 <a href="loglar.html" class="nav-link-custom">
                     <i class="bi bi-clock-history me-3"></i> İşlem Logları
                 </a>
-                <a href="ayarlar.html" class="nav-link-custom">
+                <a href="../ayarlar/ayarlar.php" class="nav-link-custom">
                     <i class="bi bi-gear-fill me-3"></i> Ayarlar
                 </a>
             </nav>
