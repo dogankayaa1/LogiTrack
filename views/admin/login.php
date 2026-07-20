@@ -1,4 +1,5 @@
-
+<?php session_start(); 
+?>
 
 <!DOCTYPE html>
 
@@ -190,7 +191,12 @@
  if($_SERVER["REQUEST_METHOD"] === "POST"){
     $kullanici_adi =$_POST["email"];
     $sifre =$_POST["sifre"];
-    login($kullanici_adi,$sifre);
+    if(login($kullanici_adi,$sifre)){
+
+echo "<script>window.location.href='yonetim-paneli.php';</script>";
+exit;
+
+    }
  }
  ?>
 <!-- Bottom Information -->

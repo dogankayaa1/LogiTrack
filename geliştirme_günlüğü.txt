@@ -1,3 +1,18 @@
+Bu proje sadece çalışan bir proje değildir.
+
+Bu depo, PHP öğrenme sürecimi kayıt altına almak amacıyla hazırlanmıştır.
+
+Her aşamada;
+
+• Harcanan süre
+• Yapılan araştırmalar
+• Karşılaşılan hatalar
+• Çözüm süreci
+• Sonuçlar
+
+kaydedilmektedir.
+
+
 -Proje spaghetti kod ile yapıldı. 
 -Temel nedeni spaghetti kod ile ürettiğim projeyi daha sonra oop öğrenince mvc mimarisine gecirmek.
 -Daha sonra bir framework kullanarak yine projeyi framework e aktarmak.
@@ -56,6 +71,9 @@
     -- Pdo kullanmayı tekrar düşündüm... Ama PDO nun arkasında olan mantığı anlamam için OOP bilmem gerekiyor ve ben OOP yi görmediğim için Erteledim tekrardan.
     -- Yeniden kursun ilgili bölümünü inceleyip hatalı kodları yazarken öğrendiğim yenilikleri de harmanlayıp kodları yazmaya karar verdim.
     -- İkinci sefer kodları yazışımda login işlemi başarılı bir şekilde gerçekleşti. değişkenli sorgunların mantığını kavradım ama pekiştirmem gerekiyor.
-
+    -- Login Fonksiyonu testlerini yaptım hatalı giriş denmekeri vb. Sorun cıkmadı. 
+    -- Github'a Yükledim. Toplam Yeniden yazma Sürem 25:00 Dakka.
+    -- session işlemlerinde oturum fonksiyonuna dahil ederken bir kac sorun cıktı ve session mekanizmasının nasıl çalıştığını anlamama yardımcı oldu. Toplam süre 22:00 Dakika 
+    -- Session işlemlerini de oturum fonksiyonna dahil etmeyi tercih ettim başarılı oturumlarda session başarılı bir biçimde başlıyor. Bu sefer sıraylar her durumu kontrol ederek ilerledim. toplam süre 34:00 dakika sürdü.  
 
 

@@ -19,7 +19,9 @@ function login($kullanici_adi, $sifre)
         $sonuc = mysqli_stmt_get_result($stmt);
         if (!empty($row = mysqli_fetch_assoc($sonuc))) {
             if ($row["eposta"] === $kullanici_adi && $row["sifre"] === $sifre) {
-                header("Location:../../views/admin/yonetim-paneli.php");
+                $_SESSION["eposta"] = $row["eposta"];
+
+                return true;
             } else {
                 echo '
 <p class="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center font-medium">
