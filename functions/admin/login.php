@@ -18,9 +18,8 @@ function login($kullanici_adi, $sifre)
         mysqli_stmt_execute($stmt);
         $sonuc = mysqli_stmt_get_result($stmt);
         if (!empty($row = mysqli_fetch_assoc($sonuc))) {
-            if ($row["eposta"] === $kullanici_adi && $row["sifre"] === $sifre) {
+            if ($row["eposta"] === $kullanici_adi && password_verify($sifre,$row["sifre"])) {
                 $_SESSION["eposta"] = $row["eposta"];
-
                 return true;
             } else {
                 echo '
@@ -30,6 +29,7 @@ function login($kullanici_adi, $sifre)
     </svg>
     Kullanıcı adı veya şifre yanlış.
 </p>';
+echo $sifre;
             }
         }
     } else {
