@@ -1,227 +1,241 @@
-<?php session_start(); 
-?>
-
+<?php include("../../functions/admin/login.php") ?>
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Admin Login | LogiTrack</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "primary-container": "#131b2e",
-                    "surface-dim": "#d8dadc",
-                    "on-secondary-fixed": "#002114",
-                    "surface": "#f7f9fb",
-                    "on-tertiary-container": "#76859b",
-                    "on-tertiary": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "surface-tint": "#565e74",
-                    "on-primary-container": "#7c839b",
-                    "surface-container": "#eceef0",
-                    "outline": "#76777d",
-                    "inverse-primary": "#bec6e0",
-                    "tertiary": "#000000",
-                    "on-secondary-container": "#00714e",
-                    "on-primary-fixed": "#131b2e",
-                    "on-background": "#191c1e",
-                    "inverse-surface": "#2d3133",
-                    "on-primary-fixed-variant": "#3f465c",
-                    "primary": "#000000",
-                    "on-tertiary-fixed": "#0d1c2f",
-                    "secondary-fixed": "#85f8c4",
-                    "on-secondary-fixed-variant": "#005137",
-                    "on-secondary": "#ffffff",
-                    "on-error": "#ffffff",
-                    "outline-variant": "#c6c6cd",
-                    "tertiary-fixed": "#d5e3fd",
-                    "surface-variant": "#e0e3e5",
-                    "primary-fixed": "#dae2fd",
-                    "tertiary-container": "#0d1c2f",
-                    "on-surface-variant": "#45464d",
-                    "on-surface": "#191c1e",
-                    "background": "#f7f9fb",
-                    "on-primary": "#ffffff",
-                    "secondary": "#006c4a",
-                    "primary-fixed-dim": "#bec6e0",
-                    "surface-container-high": "#e6e8ea",
-                    "surface-container-highest": "#e0e3e5",
-                    "inverse-on-surface": "#eff1f3",
-                    "error-container": "#ffdad6",
-                    "surface-container-lowest": "#ffffff",
-                    "error": "#ba1a1a",
-                    "secondary-container": "#82f5c1",
-                    "surface-bright": "#f7f9fb",
-                    "secondary-fixed-dim": "#68dba9",
-                    "on-tertiary-fixed-variant": "#3a485c",
-                    "tertiary-fixed-dim": "#b9c7e0",
-                    "surface-container-low": "#f2f4f6"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "container-max": "1440px",
-                    "base": "4px",
-                    "margin-desktop": "32px",
-                    "margin-mobile": "16px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "headline-lg": ["Inter"],
-                    "body-sm": ["Inter"],
-                    "label-sm": ["JetBrains Mono"],
-                    "label-md": ["JetBrains Mono"],
-                    "display-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "title-md": ["Inter"],
-                    "body-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+<html lang="tr" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - StokTakip Pro</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --font-family: 'Inter', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --card-border-radius: 20px;
         }
+
         body {
-            background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0);
-            background-size: 32px 32px;
+            font-family: var(--font-family);
+            background: radial-gradient(circle at top right, #e0e7ff 0%, #f8fafc 60%);
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        [data-bs-theme="dark"] body {
+            background: radial-gradient(circle at top right, #1e1b4b 0%, #0f172a 60%);
+            color: #f1f5f9;
+        }
+
+        /* Glassmorphism Login Card */
+        .login-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: var(--card-border-radius);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 440px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        [data-bs-theme="dark"] .login-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e1;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-bs-theme="dark"] .form-control {
+            border-color: #475569;
+            background-color: rgba(15, 23, 42, 0.6);
+            color: #f1f5f9;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+            border-color: #6366f1;
+        }
+
+        .btn-login {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Float Dark/Light Switch */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        [data-bs-theme="dark"] .theme-toggle-btn {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
         }
     </style>
 </head>
-<body class="bg-surface-container-low min-h-screen flex flex-col font-body-lg text-on-surface">
-<!-- Top Navigation Bar -->
-<header class="bg-surface dark:bg-surface-container-low border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-margin-desktop h-16 fixed top-0 z-50">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
-<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">LogiTrack</h1>
-</div>
-<div class="flex items-center gap-4">
-<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" data-icon="language">language</button>
-<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer" data-icon="help_outline">help_outline</button>
-</div>
-</header>
+<body>
 
-<!-- Main Content Canvas -->
-<main class="flex-grow flex items-center justify-center pt-16 pb-8 px-4 relative overflow-hidden">
-<!-- Atmospheric Background Element -->
-<div class="absolute -top-24 -right-24 opacity-5 pointer-events-none">
-<span class="material-symbols-outlined text-[400px]" data-icon="precision_manufacturing">precision_manufacturing</span>
-</div>
-<!-- Login Card -->
-<div class="w-full max-w-[440px] bg-surface-container-lowest border border-outline-variant rounded-lg p-10 shadow-sm relative z-10 transition-all duration-300 hover:shadow-md">
-<!-- Header Section -->
-<div class="mb-8">
-<div class="flex items-center justify-center mb-6">
-<div class="w-12 h-12 bg-primary flex items-center justify-center rounded-lg">
-<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="admin_panel_settings">admin_panel_settings</span>
-</div>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-center text-primary mb-2">Admin Login</h2>
-<p class="font-body-sm text-body-sm text-center text-on-surface-variant">Access the logistics operational command center.</p>
-</div>
-<!-- Form Section -->
-<form action="" class="space-y-6" method="POST">
-<!-- Email Field -->
-<div>
-<label class="font-label-md text-label-md block mb-2 text-on-surface-variant" for="email">WORK EMAIL</label>
-<div class="relative group">
-<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-on-surface-variant text-xl transition-colors group-focus-within:text-primary" data-icon="alternate_email">alternate_email</span>
-</div>
-<input class="w-full h-12 pl-12 pr-4 bg-surface-bright border border-outline-variant rounded-lg font-body-lg text-body-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-surface-dim" id="email" name="email" placeholder="admin@logitrack.com" required="" type="email"/>
-</div>
-</div>
-<!-- Password Field -->
-<div>
-<div class="flex justify-between items-center mb-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="password">PASSWORD</label>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Forgot Password?</a>
-</div>
-<div class="relative group">
-<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-on-surface-variant text-xl transition-colors group-focus-within:text-primary" data-icon="lock">lock</span>
-</div>
-<input class="w-full h-12 pl-12 pr-12 bg-surface-bright border border-outline-variant rounded-lg font-body-lg text-body-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-surface-dim" id="password" name="sifre" placeholder="••••••••" required="" type="password"/>
-<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
-</button>
-</div>
-</div>
-<!-- Remember Me -->
-<div class="flex items-center">
-<input class="w-4 h-4 text-primary bg-surface border-outline-variant rounded focus:ring-primary focus:ring-offset-0" id="remember" name="remember" type="checkbox"/>
-<label class="ml-2 font-body-sm text-body-sm text-on-surface-variant" for="remember">Remember this device for 30 days</label>
-</div>
-<!-- Action Button -->
-<button class="w-full h-12 bg-primary text-on-primary font-title-md text-title-md rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all cursor-pointer shadow-sm" type="submit">
-<span>Sign In</span>
-<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</form>
-<?php
- require_once("../../functions/admin/login.php");
+    <!-- Floating Theme Switcher -->
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Karanlık Mod Değiştirici">
+        <i class="bi bi-moon-stars-fill"></i>
+    </button>
 
- if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $kullanici_adi =$_POST["email"];
-    $sifre =$_POST["sifre"];
-    if(login($kullanici_adi,$sifre)){
+    <!-- Login Container -->
+    <div class="login-card p-4 p-md-5">
+        <div class="text-center mb-4">
+            <div class="d-flex justify-content-center mb-3">
+                <div class="icon-box">
+                    <i class="bi bi-box-seam-fill"></i>
+                </div>
+            </div>
+            <h4 class="fw-bold mb-1">StokTakip Pro</h4>
+            <p class="text-muted small">Lütfen yönetici hesabı bilgilerinizi giriniz.</p>
+        </div>
 
-echo "<script>window.location.href='yonetim-paneli.php';</script>";
-exit;
+        <?php if($_SERVER["REQUEST_METHOD"] === "POST"){
+               $email =  $_POST["email"];
+               $sifre = $_POST["sifre"];
+               login($email,$sifre);
+        } 
+        ?>
 
-    }
- }
- ?>
-<!-- Bottom Information -->
-<div class="mt-8 pt-8 border-t border-outline-variant">
-<div class="flex items-center justify-center gap-3 bg-surface-container p-3 rounded-lg">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
-<p class="font-label-md text-label-md text-on-secondary-container">System fully operational</p>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline py-8">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto gap-4">
-<div class="flex items-center gap-4 order-2 md:order-1">
-<p class="font-label-md text-label-md text-on-surface-variant">© 2024 LogiTrack Operational Systems. All rights reserved.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 order-1 md:order-2">
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer" href="#">Privacy Policy</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer" href="#">Terms of Service</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer" href="#">System Status</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer" href="#">Security</a>
-</div>
-</div>
-</footer>
+        <form action="" method="POST" class="needs-validation" novalidate>
+            <!-- Email Input -->
+            <div class="mb-3">
+                <label for="email" class="form-label small fw-semibold">E-posta Adresi</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                    <input name="email" type="email" class="form-control border-start-0" id="email" placeholder="isim@sirket.com" required>
+                    <div class="invalid-feedback">Geçerli bir e-posta adresi yazınız.</div>
+                </div>
+            </div>
 
+            <!-- Password Input -->
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label for="password" class="form-label small fw-semibold mb-0">Şifre</label>
+                    <a href="#" class="small text-decoration-none text-primary fw-medium">Şifremi Unuttum</a>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"><i class="bi bi-shield-lock"></i></span>
+                    <input name="sifre" type="password" class="form-control border-start-0 border-end-0" id="password" placeholder="••••••••" required>
+                    <button class="btn btn-outline-secondary border-start-0 text-muted" type="button" id="togglePassword">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                    <div class="invalid-feedback">Lütfen şifrenizi giriniz.</div>
+                </div>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label small" for="rememberMe">Beni Hatırla</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-login w-100 mb-3">Sistemde Oturum Aç</button>
+        </form>
+
+        <div class="text-center">
+            <span class="text-muted small">Hesabınız yok mu?</span>
+            <a href="#" class="small text-decoration-none fw-semibold ms-1">İletişime Geçin</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form Validation Logic (Bootstrap Standard)
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+        // Toggle Password Visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.querySelector('i').className = type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash';
+        });
+
+        // Theme switcher
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const html = document.documentElement;
+            const newTheme = html.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-bs-theme', newTheme);
+            const icon = document.getElementById('themeToggle').querySelector('i');
+            icon.className = newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+        });
+    </script>
 </body>
 </html>
