@@ -1,6 +1,6 @@
 <?php ob_start(); 
 session_start();
-if(empty($_SESSION["eposta"]) && empty($_SESSION["yetki"]) !== "admin" ){
+if(empty($_SESSION["eposta"]) && empty($_SESSION["yetki"]) != "admin" ){
     header("Location:login.php");
 }
 ?>

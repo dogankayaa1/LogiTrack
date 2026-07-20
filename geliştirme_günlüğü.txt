@@ -58,9 +58,6 @@ kaydedilmektedir.
     -Herhangi bir alanda sorun olduğunda yada değişiklik yapmam gerektiğinde rahatlıkla ulaşabilir ve diğer alanları bozmadan ilerleyebilirim.
     -Ölceklemesi kolay olur farklı sunucularda çalıştırma imkanım olabilir yönetmesi kolay olur bakımı kolay olur.
     -ilk olarak admin işlemlerinden başlamak istiyorum Roller ve yetkileri admin panelini kurduktan sonra daha rahat yapabilirim diye düşünüyorum.
-
--Toplam Geliştirme Süresi:
-
     -admin login sayfasının tasarlanması AI Tarafından ve incelemem 1:34 Dakika.
     -admin sayfasında login sayfası için   require_once("../../functions/admin/login.php"); zorunlu olarak sayfaya dahil edilmesini sağladım.Daha sonra doğru bir şekilde sayfaya dahil ediliyor mu kontrol ettim echo ile kontorl ettim.
     Toplam Süre 4:30 dakika.
@@ -88,4 +85,5 @@ kaydedilmektedir.
 
 7. Admin panelinde yer alan ayarlar sayfasının dinamik hale getirilmesi.
 -post işlemleri için fonksiyon hazırlanacak.
--Admin panelinde yer alan ayarlar bölümünde olan  Mağaza / Firma Bilgileri bölümünde veri tabanında yer alan verinin güncellenmesi için gerekli fonksiyon sorgular kodlar yazıldı test edildi. Fonksiyon sorunsuz bir şekilde çalışıyor.
+-Admin panelinde yer alan ayarlar bölümünde olan  Mağaza / Firma Bilgileri bölümünde veri tabanında yer alan verinin güncellenmesi için gerekli fonksiyon sorgular kodlar yazıldı test edildi. Fonksiyon sorunsuz bir şekilde çalışıyor. Toplam Süre 26:00 Dakika.
+-------Farkındalık AI nin gösterdiği her koda güvenme kendin yaz kendin dokümandasyonda doğrula-------

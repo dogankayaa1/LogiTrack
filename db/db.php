@@ -11,8 +11,11 @@ $dbName = "test";
 // veri tabanını sildi hata Warning: mysqli_connect(): (HY000/1049): Unknown database 'test' in /var/www/html/logitrack/db/db.php on line 12
 // Bağlantı hatası
 // @ sonrası hata sustu.
+// yaptığım en büyük hata hatayı susturmak mış anladım @ işaretini geri kaldırdım.
+// AI nin her önerdiğini yapmamak lazım mış anladım. @ koy hata susar yazmıştı. hata susutu ama benim hatayı susturmamam lazım
 
-$baglanti = @mysqli_connect($host,$username,$password,$dbName);
+
+$baglanti = mysqli_connect($host,$username,$password,$dbName);
 
 if(!$baglanti){
     die("Bağlantı hatası");

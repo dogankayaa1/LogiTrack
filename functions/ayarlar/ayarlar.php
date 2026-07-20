@@ -1,5 +1,7 @@
 <?php require_once("../../db/db.php");
 
+
+
 $firma_adi = "";
 $para_birimi = "";
 $kdv_orani = "";

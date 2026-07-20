@@ -152,6 +152,7 @@
                $email =  $_POST["email"];
                $sifre = $_POST["sifre"];
                login($email,$sifre);
+               
         } 
         ?>
 

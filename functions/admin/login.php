@@ -8,7 +8,7 @@ $sifre = "";
 
 
 
-function login($kullanici_adi, $sifre)
+function login($kullanici_adi,$sifre)
 {
     global $baglanti;
     if (!empty($kullanici_adi) && !empty($sifre)) {
