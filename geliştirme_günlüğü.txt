@@ -90,3 +90,15 @@ kaydedilmektedir.
 -------Farkındalık AI nin gösterdiği her koda güvenme kendin yaz kendin dokümandasyonda doğrula-------
 --Functions klasor yapısında get ile erişim olacabileceğini düşündüm klasörlerin hepsini kaldırdım sadece dosyalar var. sunucular ilk olarak index dosyalarını okur bunu bildiğim için boşbir index dosyası ekledim function klasörüne sonra yönlendirme ekledim.
 --.htaccess ile klasörlerin kodrumalarını yapabileceğimi biliyorum ama karşıma bu tür kodlar çıkabilir düşüncesi ile bunu yapmayı tercih ettim.
+
+8. Ürün Kategorileri kısmının yapılması. Toplam süre 22:00 Dakika
+-- kategoriler için veri tabanı tablosu stunları oluşturuldu
+-- Mysqlli parametrelerini ezberlemeden bir dokümandan okuyarak ilerlemek istedim https://www.w3schools.com/php/php_mysql_insert.asp adresinden sorgu örneklerine baktım.
+-- sorgu sırasını da sürekli yazarak öğrenmek istediğim için functions/login.php dosyasından sıralara baktım.
+--sıralama:
+  -sorgu hazırlığı
+  -veri tabanı bağlantısı ile sorguyu prepare etme hazırlama
+  -Sql İnjection u önlemek için parametreleri doğrulama  (string ise string integer ile int eşleştirmeleri "si" )şeklinde
+  -sonrasında sorguyu çalıştırmak ve uygulamak. bu satırları yazarken akıma gereln execute sonrası veri tabamı bağlantılarını kapatmadığımı fark ettim sorgu sonları için  hemen ilgili mysqli_close komutu ile baglati değişkeni aracılıgı ile bağlantıyı sonlandıracağım. güvenlik riski ayrıca veri tabanı acık bağlantılar sebebi ile yavaşlayabilir.
+  --hızlıca düzeltmeleri yaptım toplam 1:00 dakika.
+  --sistemin calıştıgını kontrol ettim sorun cıkmadı.

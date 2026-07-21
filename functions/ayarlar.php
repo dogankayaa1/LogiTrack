@@ -1,4 +1,4 @@
-<?php require_once("../../db/db.php");
+<?php require_once("../db/db.php");
 
 
 
@@ -17,6 +17,7 @@ function ayarGuncelle($firma_adi,$para_birimi,$kdv_orani){
     mysqli_stmt_bind_param($hazırlık , "ssi",$firma_adi,$para_birimi,$kdv_orani);
     // kaydı tamamla
     mysqli_stmt_execute($hazırlık);
+    mysqli_close($baglanti);
     echo '<div class="alert alert-success" role="alert"> Kayıt Başarılı </div>';
    
 };
@@ -28,6 +29,7 @@ function ayarGetir(){
     mysqli_stmt_execute($hazirlik);
     $sonuc = mysqli_stmt_get_result($hazirlik);
     $gelen = mysqli_fetch_assoc($sonuc);
+    mysqli_close($baglanti);
 
 
  return [

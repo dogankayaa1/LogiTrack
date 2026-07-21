@@ -20,15 +20,15 @@
 
             <nav class="nav flex-column">
                 <div class="sidebar-heading">Paneller</div>
-                <a href="index.html" class="nav-link-custom active">
+                <a href="../admin/yonetim-paneli.php" class="nav-link-custom active">
                     <i class="bi bi-grid-1x2-fill me-3"></i> Genel Bakış
                 </a>
                 
                 <div class="sidebar-heading">Stok Yönetimi</div>
-                <a href="urunler.html" class="nav-link-custom">
+                <a href="../urun/urun.php" class="nav-link-custom">
                     <i class="bi bi-plus-circle-fill me-3"></i> Ürün Listesi & Ekle
                 </a>
-                <a href="kategoriler.html" class="nav-link-custom">
+                <a href="../kategori/kategori.php" class="nav-link-custom">
                     <i class="bi bi-tags-fill me-3"></i> Kategoriler
                 </a>
                 <a href="hareketler.html" class="nav-link-custom">

@@ -18,6 +18,8 @@ function login($kullanici_adi,$sifre)
         mysqli_stmt_bind_param($stmt, "s", $kullanici_adi);
         mysqli_stmt_execute($stmt);
         $sonuc = mysqli_stmt_get_result($stmt);
+        mysqli_close($baglanti);
+
         if (!empty($row = mysqli_fetch_assoc($sonuc))) {
             if ($row["eposta"] === $kullanici_adi && password_verify($sifre,$row["sifre"])) {
                 session_start();
