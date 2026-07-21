@@ -1,1 +1,1 @@
-yetkisiz db 
+<?php header("Location:../views/index.php"); ?>

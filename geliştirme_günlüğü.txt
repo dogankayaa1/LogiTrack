@@ -86,4 +86,7 @@ kaydedilmektedir.
 7. Admin panelinde yer alan ayarlar sayfasının dinamik hale getirilmesi.
 -post işlemleri için fonksiyon hazırlanacak.
 -Admin panelinde yer alan ayarlar bölümünde olan  Mağaza / Firma Bilgileri bölümünde veri tabanında yer alan verinin güncellenmesi için gerekli fonksiyon sorgular kodlar yazıldı test edildi. Fonksiyon sorunsuz bir şekilde çalışıyor. Toplam Süre 26:00 Dakika.
+
 -------Farkındalık AI nin gösterdiği her koda güvenme kendin yaz kendin dokümandasyonda doğrula-------
+--Functions klasor yapısında get ile erişim olacabileceğini düşündüm klasörlerin hepsini kaldırdım sadece dosyalar var. sunucular ilk olarak index dosyalarını okur bunu bildiğim için boşbir index dosyası ekledim function klasörüne sonra yönlendirme ekledim.
+--.htaccess ile klasörlerin kodrumalarını yapabileceğimi biliyorum ama karşıma bu tür kodlar çıkabilir düşüncesi ile bunu yapmayı tercih ettim.

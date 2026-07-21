@@ -1,4 +1,4 @@
-<?php include("../../functions/admin/login.php") ?>
+<?php include("../../functions/login.php") ?>
 <!DOCTYPE html>
 <html lang="tr" data-bs-theme="light">
 <head>

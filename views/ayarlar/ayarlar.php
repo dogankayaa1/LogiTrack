@@ -1,4 +1,4 @@
-<?php require_once("../../functions/ayarlar/ayarlar.php") ?>
+<?php require_once("../../functions/ayarlar.php"); ?>
 
 
 <!DOCTYPE html>
@@ -180,7 +180,7 @@
 
             <nav class="nav flex-column">
                 <div class="sidebar-heading">Paneller</div>
-                <a href="index.html" class="nav-link-custom">
+                <a href="../admin/yonetim-paneli.php" class="nav-link-custom">
                     <i class="bi bi-grid-1x2-fill me-3"></i> Genel Bakış
                 </a>
                 
@@ -270,31 +270,37 @@
                         $para_birimi = $_POST["para_birimi"];
                         $kdv_orani = $_POST["kdv_orani"];
 
-                        ayarlar($firma_adi,$para_birimi,$kdv_orani);
+                        ayarGuncelle($firma_adi,$para_birimi,$kdv_orani);
 
                     }
                     
+                    $para = ayarGetir();
+                    $gelen_para = $para["para_birimi"];
+                    $gelen_kdv =$para["kdv_orani"];
+                    $gelen_firma_adi = $para["firma_adi"];
+                    
                     ?>
+                    
                     <form method="POST" action="" >
                         <div class="mb-3">
                             <label class="form-label small fw-semibold">Firma Adı</label>
-                            <input name="firma_adi" type="text" class="form-control" value="StokTakip Ticaret Ltd. Şti.">
+                            <input name="firma_adi" type="text" class="form-control" value="<?php echo $gelen_firma_adi; ?>">
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Varsayılan Para Birimi</label>
                                 <select name="para_birimi" class="form-select">
-                                    <option value="TRY" selected>Türk Lirası (₺)</option>
-                                    <option value="USD">Amerikan Doları ($)</option>
-                                    <option value="EUR">Euro (€)</option>
+                                    <option value="TRY" <?php echo ($gelen_para == 'TRY') ? 'selected' : '';?>>Türk Lirası (₺)</option>
+                                    <option value="USD" <?php echo ($gelen_para == 'USD') ? 'selected' : '';?>>Amerikan Doları ($)</option>
+                                    <option value="EUR" <?php echo ($gelen_para == 'EUR') ? 'selected' : '';?>>Euro (€)</option>
                                 </select>
                             </div>
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Kdv Oranı %</label>
                                 <select name="kdv_orani" class="form-select">
-                                    <option value="20" selected>20</option>
-                                    <option value="10">10</option>
-                                    <option value="1">1</option>
+                                    <option value="20" <?php echo ($gelen_kdv == '20') ? 'selected' : ''; ?> >20</option>
+                                    <option value="10" <?php  echo ($gelen_kdv == '10') ? 'selected' : ''; ?>>10</option>
+                                    <option value="1" <?php echo ($gelen_kdv == '1') ? 'selecded' : ''; ?> >1</option>
                                 </select>
                             </div>
                           

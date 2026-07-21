@@ -1,4 +1,5 @@
 <?php ob_start(); 
+
 require_once '../../db/db.php';
 
 $kullanici_adi = "";
@@ -19,6 +20,7 @@ function login($kullanici_adi,$sifre)
         $sonuc = mysqli_stmt_get_result($stmt);
         if (!empty($row = mysqli_fetch_assoc($sonuc))) {
             if ($row["eposta"] === $kullanici_adi && password_verify($sifre,$row["sifre"])) {
+                session_start();
                 $_SESSION["eposta"] = $row["eposta"];
                 $_SESSION["yetki"] = $row["yetki"];
              return header("Location:../../views/admin/yonetim-paneli.php");

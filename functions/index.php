@@ -1,1 +1,1 @@
-yetkisiz index
+<?php header("Location:../index.php"); ?>
