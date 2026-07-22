@@ -1,6 +1,4 @@
-
-  
-  <!-- Sidebar -->
+ <!-- Sidebar -->
     <aside class="sidebar d-flex flex-column justify-content-between py-4" style="overflow-y: auto;">
         <div>
             <div class="px-4 mb-3 d-flex align-items-center justify-content-between">

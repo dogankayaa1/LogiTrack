@@ -102,3 +102,12 @@ kaydedilmektedir.
   -sonrasında sorguyu çalıştırmak ve uygulamak. bu satırları yazarken akıma gereln execute sonrası veri tabamı bağlantılarını kapatmadığımı fark ettim sorgu sonları için  hemen ilgili mysqli_close komutu ile baglati değişkeni aracılıgı ile bağlantıyı sonlandıracağım. güvenlik riski ayrıca veri tabanı acık bağlantılar sebebi ile yavaşlayabilir.
   --hızlıca düzeltmeleri yaptım toplam 1:00 dakika.
   --sistemin calıştıgını kontrol ettim sorun cıkmadı.
+
+9. Mevcut kategoriler bolümü 2 saat 8 dakika.
+--ketegoriler listelenecek,kateoriler için güncelleme işlemleri yapılacak , silme özelliği yapılacak
+--listeleme ekleme güncelleme işlemleri eklendi beklediğimden uzun sürdü bootstrap modal id ekleme kısmını bulmak anlamak ve eklemek zaman kaybettirdi.
+--önemli bir çıkarımım oldu formlar ile dolu bir sayfada olduğumuzda mutlaka if kontrolünde fonksiyonları cağırdığımda empty isset gibi fonksiyonlar ile gelen postları kontrol edip tüm sayfadaki kodların calışmasını engellemek sadece gelen post işlemine uygun kodun calışmasını sağlamak 
+-- __DIR__ sabitini de öğrendim dosya yolu hatalarını engellemek için mutlaka kullanacağım artık.
+-- Baya yorucu ve öğretici oldu.
+
+
