@@ -109,5 +109,6 @@ kaydedilmektedir.
 --önemli bir çıkarımım oldu formlar ile dolu bir sayfada olduğumuzda mutlaka if kontrolünde fonksiyonları cağırdığımda empty isset gibi fonksiyonlar ile gelen postları kontrol edip tüm sayfadaki kodların calışmasını engellemek sadece gelen post işlemine uygun kodun calışmasını sağlamak 
 -- __DIR__ sabitini de öğrendim dosya yolu hatalarını engellemek için mutlaka kullanacağım artık.
 -- Baya yorucu ve öğretici oldu.
+--benim hatam if bloklarında gelen postun kontrolünü yapmamak oldu değil mi php suna baktı evet post var sayfanın en basından beri bu postu calıştıralım kime ait önemli değil sıradan yapalım ama isset ve empty kontrolleri php ye şunu dedi bak eger if içinden gecmezse else dön else boş olunca alt koda gec sıyatla devam et bu sayede postu olmayan fonksiyonlar da işlem yapmayacağı için bize kızmayacak.
 
 
