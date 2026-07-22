@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (empty($_SESSION["eposta"]) || !isset($_SESSION["yetki"]) || $_SESSION["yetki"] !== "admin") {
+    header("Location: login.php");
+    exit();
+}
+require_once __DIR__.'../../../functions/urun.php';
+require_once __DIR__.'../../../functions/kategori.php';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="tr" data-bs-theme="light">
 <head>
@@ -188,6 +201,8 @@
     <!-- Sidebar -->
    <?php include("../layout/header.php"); ?>
 
+   
+
     <!-- Main Content -->
     <main class="main-content">
         <!-- Header -->
@@ -241,6 +256,7 @@
                     <button class="btn btn-outline-secondary w-100"><i class="bi bi-funnel-fill me-1"></i> Filtrele</button>
                 </div>
             </div>
+            
 
             <!-- Products Table -->
             <div class="table-responsive">
@@ -258,45 +274,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $urun = urunGetir(); ?>
+                        <?php foreach($urun as $gelenUrun): ?>
+
                         <tr>
-                            <td><code class="fw-bold">ELK-001</code></td>
-                            <td><span class="fw-semibold">Oyuncu Kulaklığı RGB</span></td>
-                            <td><span class="text-muted small">Elektronik</span></td>
-                            <td>₺1,250.00</td>
-                            <td class="text-center fw-bold">45 <small class="text-muted">adet</small></td>
-                            <td class="text-center text-muted">10</td>
+                            
+                            <td><code class="fw-bold"><?php  echo $gelenUrun["urun_kodu"]; ?></code></td>
+                            <td><span class="fw-semibold"><?php  echo $gelenUrun["urun_adi"]; ?></span></td>
+                            <td><span class="text-muted small"><?php  echo $gelenUrun["kategori"]; ?></span></td>
+                            <td>₺<?php  echo $gelenUrun["fiyat"]; ?></td>
+                            <td class="text-center fw-bold"><small class="text-muted"><?php  echo $gelenUrun["baslangic_stok"]; ?></small></td>
+                            <td class="text-center text-muted"><?php  echo $gelenUrun["kritik_stok"]; ?></td>
                             <td><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-10 rounded-pill px-2.5 py-1">Güvenli</span></td>
                             <td class="text-end">
-                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></button>
-                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
+                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#editProductModal<?php echo $gelenUrun["id"];?>"><i class="bi bi-pencil-fill"></i></button>
+                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteProductModal<?php echo $gelenUrun["id"];?>"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td><code class="fw-bold">ELK-002</code></td>
-                            <td><span class="fw-semibold">Mekanik Klavye Blue Switch</span></td>
-                            <td><span class="text-muted small">Elektronik</span></td>
-                            <td>₺1,890.00</td>
-                            <td class="text-center fw-bold text-warning">8 <small class="text-muted">adet</small></td>
-                            <td class="text-center text-muted">15</td>
-                            <td><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-10 rounded-pill px-2.5 py-1">Kritik Stok</span></td>
-                            <td class="text-end">
-                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></button>
-                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code class="fw-bold">GDA-105</code></td>
-                            <td><span class="fw-semibold">Filtre Kahve 250gr</span></td>
-                            <td><span class="text-muted small">Gıda</span></td>
-                            <td>₺185.00</td>
-                            <td class="text-center fw-bold text-danger">0 <small class="text-muted">adet</small></td>
-                            <td class="text-center text-muted">5</td>
-                            <td><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-10 rounded-pill px-2.5 py-1">Tükendi</span></td>
-                            <td class="text-end">
-                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></button>
-                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
+                        <?php endforeach; ?>
+
+                    
                     </tbody>
                 </table>
             </div>
@@ -325,38 +322,41 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="../../functions/urun.php" method="POST" >
                         <div class="mb-3">
                             <label class="form-label small fw-semibold">Ürün Kodu</label>
-                            <input type="text" class="form-control" placeholder="örn: ELK-9832" required>
+                            <input name="urun_kodu" type="text" class="form-control" placeholder="örn: ELK-9832" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-semibold">Ürün Adı</label>
-                            <input type="text" class="form-control" placeholder="örn: Kablosuz Klavye" required>
+                            <input name="urun_adi" type="text" class="form-control" placeholder="örn: Kablosuz Klavye" required>
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Kategori</label>
-                                <select class="form-select" required>
-                                    <option value="Elektronik">Elektronik</option>
-                                    <option value="Giyim">Giyim</option>
-                                    <option value="Gıda">Gıda</option>
-                                    <option value="Ofis">Ofis Malzemeleri</option>
+                                <select name="urun_kategori" class="form-select" required>
+                                    <?php 
+                                    $kategori_getir = kategoriGetir();
+                                    foreach($kategori_getir as $kategori): 
+                                    ?>
+                                    <option value="<?php echo $kategori["kategori_adi"];?>"><?php echo $kategori["kategori_adi"];?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-6">
-                                <label class="form-label small fw-semibold">Fiyat (₺)</label>
-                                <input type="number" step="0.01" class="form-control" placeholder="0.00" required>
+                                <label class="form-label small fw-semibold">Ürün Fiyatı(₺)</label>
+                                <input name="urun_fiyat" type="number" step="0.01" class="form-control" placeholder="0.00" required>
                             </div>
+
                         </div>
                         <div class="row g-3 mb-4">
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Başlangıç Stoğu</label>
-                                <input type="number" class="form-control" placeholder="0" required>
+                                <input name="urun_baslangic_stok" type="number" class="form-control" placeholder="0" required>
                             </div>
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Kritik Stok Limiti</label>
-                                <input type="number" class="form-control" placeholder="10" required>
+                                <input name="urun_kritik_stok" type="number" class="form-control" placeholder="10" required>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-end">
@@ -370,7 +370,8 @@
     </div>
 
     <!-- Edit Product Modal -->
-    <div class="modal fade" id="editProductModal" tabindex="-1" aria-hidden="true">
+    <?php foreach($urun as $gelenUrun): ?>
+    <div class="modal fade" id="editProductModal<?php echo $gelenUrun["id"]; ?>" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0" style="border-radius: var(--card-border-radius);">
                 <div class="modal-header border-bottom-0 pb-0">
@@ -378,38 +379,38 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="../../functions/urun.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $gelenUrun["id"]; ?>">
                         <div class="mb-3">
                             <label class="form-label small fw-semibold">Ürün Kodu</label>
-                            <input type="text" class="form-control" value="ELK-001" readonly disabled>
+                            <input type="text" class="form-control" name="urun_kodu" value="<?php echo $gelenUrun["urun_kodu"]; ?>" readonly disabled>
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-semibold">Ürün Adı</label>
-                            <input type="text" class="form-control" value="Oyuncu Kulaklığı RGB" required>
+                            <input type="text" class="form-control" name="urun_adi" value="<?php echo $gelenUrun["urun_adi"]; ?>" required>
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Kategori</label>
-                                <select class="form-select" required>
-                                    <option value="Elektronik" selected>Elektronik</option>
-                                    <option value="Giyim">Giyim</option>
-                                    <option value="Gıda">Gıda</option>
-                                    <option value="Ofis">Ofis Malzemeleri</option>
+                                <select name="urun_kategori" class="form-select" required>
+                                    <?php foreach($kategori_getir as $kategori): ?>
+                                    <option value="<?php echo $kategori["kategori_adi"];?>" <?php echo ($kategori["kategori_adi"] == $gelenUrun["kategori"]) ? 'selected' : ''; ?>><?php echo $kategori["kategori_adi"];?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Fiyat (₺)</label>
-                                <input type="number" step="0.01" class="form-control" value="1250.00" required>
+                                <input type="number" step="0.01" class="form-control" name="urun_fiyat" value="<?php echo $gelenUrun["fiyat"]; ?>" required>
                             </div>
                         </div>
                         <div class="row g-3 mb-4">
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Mevcut Stok</label>
-                                <input type="number" class="form-control" value="45" required>
+                                <input type="number" class="form-control" name="baslangic_stok" value="<?php echo $gelenUrun["baslangic_stok"]; ?>" required>
                             </div>
                             <div class="col-6">
                                 <label class="form-label small fw-semibold">Kritik Stok Limiti</label>
-                                <input type="number" class="form-control" value="10" required>
+                                <input type="number" class="form-control" name="kritik_stok" value="<?php echo $gelenUrun["kritik_stok"]; ?>" required>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-end">
@@ -421,6 +422,32 @@
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
+
+    <!-- Delete Product Modal -->
+    <?php foreach($urun as $gelenUrun): ?>
+    <div class="modal fade" id="deleteProductModal<?php echo $gelenUrun["id"]; ?>" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0" style="border-radius: var(--card-border-radius);">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold">Ürünü Sil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong><?php echo $gelenUrun["urun_adi"]; ?></strong> isimli ürünü silmek istediğinize emin misiniz? Bu işlem geri alınamaz.</p>
+                    <form action="../../functions/urun.php" method="POST">
+                        <input type="hidden" name="silme_id" value="<?php echo $gelenUrun["id"]; ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Vazgeç</button>
+                            <button type="submit" class="btn btn-danger">Evet, Sil</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

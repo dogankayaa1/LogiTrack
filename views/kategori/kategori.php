@@ -1,4 +1,10 @@
-<?php include("../../functions/kategori_guncelle.php");
+<?php
+session_start();
+if (empty($_SESSION["eposta"]) || !isset($_SESSION["yetki"]) || $_SESSION["yetki"] !== "admin") {
+    header("Location: login.php");
+    exit();
+}
+ include("../../functions/kategori_guncelle.php");
  include("../../functions/kategori.php");
  include("../../functions/kategori_sil.php");
 
