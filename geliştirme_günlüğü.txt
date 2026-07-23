@@ -124,3 +124,17 @@ kaydedilmektedir.
 12.Müşteri/bayi Yönetimi toplam süre 43:00 dakika 
 -- tüm crud işlemleri yapıldı
 -- Fonksiyonları yeniden yazmak yerine yazdığım kodları kopyalayıp yapıştırdım isimleri değiştirip kullandım.
+
+-------- Bu noktada proje öürenmem gereken mysqli Procedural yapısını öğretti crud işlemleri session işlemlerini öğrendim ama pekiştirmem lazım.Daha fazla proje üreterek. ama sektör şuan mysqli Procedural pek kullanmadığı için ve yazma zorluklarını da fark ettim anladım. Güvenlik konusunda neden oop mysql ve pdo nın var olduğunu anladım. ek olarak cogu alanda htmlspecialchars fonksiyonu ile cıktıları xss riskine karsı bilerek güvenceye almadım zaten projenin amacı crud işlemlerini pekiştirmem di.
+--------------- Mysqli Procedural dan öğrendiğim değerli kısımlar---------------
+-- parametre tanımlama--
+--sorgu kapatma--
+--sorgu eşleştirme--
+--sorguyu yazdırma--
+--veritabanı bağlantılarını kapatma--
+-- Ekleme (create)işlemleri--
+--güncelleme (update) işlemleri--
+--okuma(read) işlemleri--
+--silme (delete) işlemleri--
+
+--- BTK Akademi de satık turan ın ders verdiği PHP 8 ile Web Uygulama Geliştirme kursunda mysql ile php bölümünü bitirdikten sonra kursa ara verip bu projeyi geliştirdim. şimdi ise yönetim paneli bölümüne gecip buralardan kritik gördüğüm kısımları not alıp oop ye gecerek oop yi öğrendikten sonra bu projeyi oop ile tekrar geliştireceğim.---
