@@ -120,3 +120,7 @@ kaydedilmektedir.
 --Çok ilginc birşey oldu yeni redarikçi ekle fonksiyonu ve if bloğunu hata almadan gercekleştirdim veriler hatası kaydoldu php uyarısı da almadım.
 --crud işlemleri tamamlandı fonksiyonları yazarken artık sıralara fonksiyon cağırmalara daha cok alıştım.
 --kas hafızası oluştukca daha az sorun ve daha hızlı çözüm üretebildiğimi fark ettim.
+
+12.Müşteri/bayi Yönetimi toplam süre 43:00 dakika 
+-- tüm crud işlemleri yapıldı
+-- Fonksiyonları yeniden yazmak yerine yazdığım kodları kopyalayıp yapıştırdım isimleri değiştirip kullandım.

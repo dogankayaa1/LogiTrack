@@ -40,7 +40,7 @@
                 <a href="../tedarikci/tedarikci.php" class="nav-link-custom">
                     <i class="bi bi-truck me-3"></i> Tedarikçiler
                 </a>
-                <a href="musteriler.html" class="nav-link-custom">
+                <a href="../musteri/musteri.php" class="nav-link-custom">
                     <i class="bi bi-people-fill me-3"></i> Müşteriler
                 </a>
                 <a href="kasa.html" class="nav-link-custom">
