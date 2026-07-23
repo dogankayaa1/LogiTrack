@@ -29,15 +29,15 @@
                 <a href="../kategori/kategori.php" class="nav-link-custom">
                     <i class="bi bi-tags-fill me-3"></i> Kategoriler
                 </a>
-                <a href="hareketler.html" class="nav-link-custom">
+                <a href="../depo/depo.php" class="nav-link-custom">
                     <i class="bi bi-arrow-left-right me-3"></i> Depo Hareketleri
                 </a>
-                <a href="barkod.html" class="nav-link-custom">
+                <a href="../barkod/barkod.php" class="nav-link-custom">
                     <i class="bi bi-upc-scan me-3"></i> Barkod Basımı
                 </a>
 
                 <div class="sidebar-heading">Cari & Finans</div>
-                <a href="tedarikciler.html" class="nav-link-custom">
+                <a href="../tedarikci/tedarikci.php" class="nav-link-custom">
                     <i class="bi bi-truck me-3"></i> Tedarikçiler
                 </a>
                 <a href="musteriler.html" class="nav-link-custom">

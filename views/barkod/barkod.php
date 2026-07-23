@@ -1,9 +1,10 @@
+<?php require_once('../../functions/urun.php') ?>
 <!DOCTYPE html>
 <html lang="tr" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depo Hareketleri - StokTakip Pro</title>
+    <title>Barkod Basımı - StokTakip Pro</title>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,31 +142,28 @@
             font-size: 1.1rem;
         }
 
-        .table-responsive {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .table th {
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            background-color: #f8fafc;
-            color: #64748b;
-            border-bottom: 2px solid #e2e8f0;
+        /* Barkod label mockup css */
+        .barcode-card {
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
             padding: 1rem;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            max-width: 250px;
+            margin: auto;
         }
 
-        [data-bs-theme="dark"] .table th {
-            background-color: #1e293b;
-            color: #94a3b8;
-            border-bottom: 2px solid #334155;
+        [data-bs-theme="dark"] .barcode-card {
+            background-color: #ffffff; /* Keep labels white for print feel */
+            color: #000000;
         }
 
-        .table td {
-            padding: 1rem;
-            vertical-align: middle;
+        .barcode-img {
+            width: 100%;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
         }
 
         .theme-toggle-btn {
@@ -202,7 +200,7 @@
                 </button>
             </div>
 
-            <?php include("../layout/header.php") ?>
+       <?php include("../layout/header.php"); ?>
         </div>
 
         <div class="px-4">
@@ -233,90 +231,82 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <div>
-                    <h4 class="fw-bold mb-0">Depo Hareketleri (Log)</h4>
-                    <p class="text-muted small mb-0">Ürün giriş, çıkış ve iade hareketlerinin tarihsel takibi.</p>
+                    <h4 class="fw-bold mb-0">Barkod & Etiket Basımı</h4>
+                    <p class="text-muted small mb-0">Ürünlerinize ait barkod etiketlerini düzenleyin ve yazdırın.</p>
                 </div>
             </div>
         </header>
 
-        <!-- Main Card -->
-        <div class="card custom-card border-0 p-4">
-            <!-- Filter Row -->
-            <div class="row g-3 mb-4">
-                <div class="col-12 col-md-3">
-                    <label class="form-label small fw-semibold">Hareket Türü</label>
-                    <select class="form-select">
-                        <option value="">Tümü</option>
-                        <option value="in">Stok Girişi (+)</option>
-                        <option value="out">Stok Çıkışı (-)</option>
-                        <option value="return">İade</option>
-                    </select>
-                </div>
-                <div class="col-12 col-md-3">
-                    <label class="form-label small fw-semibold">Ürün Seçimi</label>
-                    <select class="form-select">
-                        <option value="">Tüm Ürünler</option>
-                        <option value="1">Oyuncu Kulaklığı RGB</option>
-                        <option value="2">Mekanik Klavye</option>
-                    </select>
-                </div>
-                <div class="col-12 col-md-4">
-                    <label class="form-label small fw-semibold">Tarih Aralığı</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control">
-                        <span class="input-group-text">-</span>
-                        <input type="date" class="form-control">
-                    </div>
-                </div>
-                <div class="col-12 col-md-2 d-flex align-items-end">
-                    <button class="btn btn-outline-primary w-100" style="border-color: #4f46e5; color: #4f46e5;"><i class="bi bi-search me-1"></i> Sorgula</button>
+        <div class="row g-4">
+            <!-- Settings Card -->
+            <div class="col-12 col-lg-5">
+                <div class="card custom-card border-0 p-4">
+                    <h5 class="fw-bold mb-3">Etiket Seçenekleri</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Ürün Seçin</label>
+                            <select class="form-select" required>
+                                <option value="">Bir ürün seçin...</option>
+                                <?php 
+                                $gelen_urun = urunGetir();
+                                foreach($gelen_urun as $urun):
+                                ?>
+                                <option value="1"><?php echo $urun["urun_adi"];?>(<?php echo $urun["urun_kodu"]; ?>)</option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label small fw-semibold">Barkod Türü</label>
+                                <select class="form-select">
+                                    <option value="code128">Code 128 (Önerilen)</option>
+                                    <option value="ean13">EAN-13</option>
+                                    <option value="qrcode">QR Kod</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small fw-semibold">Basılacak Adet</label>
+                                <input type="number" class="form-control" value="10" min="1" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="showPrice" checked>
+                            <label class="form-check-label small fw-semibold" for="showPrice">Fiyat Bilgisini Göster</label>
+                        </div>
+                        <div class="mb-4 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="showName" checked>
+                            <label class="form-check-label small fw-semibold" for="showName">Ürün Adını Göster</label>
+                        </div>
+
+                        <button type="button" onclick="window.print()" class="btn btn-primary w-100" style="background: var(--primary-gradient); border:none;">
+                            <i class="bi bi-printer me-1"></i> Şimdi Yazdır (Print)
+                        </button>
+                    </form>
                 </div>
             </div>
 
-            <!-- Movements Table -->
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead>
-                        <tr>
-                            <th>TARİH</th>
-                            <th>ÜRÜN KODU</th>
-                            <th>ÜRÜN ADI</th>
-                            <th>TÜR</th>
-                            <th class="text-center">MİKTAR</th>
-                            <th>İŞLEMİ YAPAN</th>
-                            <th>AÇIKLAMA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="small text-muted">20-07-2026 14:32</td>
-                            <td><code>ELK-001</code></td>
-                            <td class="fw-semibold">Oyuncu Kulaklığı RGB</td>
-                            <td><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-10 rounded-pill px-2.5 py-1">Stok Girişi (+)</span></td>
-                            <td class="text-center fw-bold text-success">+15 adet</td>
-                            <td>Geliştirici PHP</td>
-                            <td class="text-muted small">Tedarikçi alımı (Fatura: #28392)</td>
-                        </tr>
-                        <tr>
-                            <td class="small text-muted">20-07-2026 12:15</td>
-                            <td><code>ELK-002</code></td>
-                            <td class="fw-semibold">Mekanik Klavye Blue Switch</td>
-                            <td><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-10 rounded-pill px-2.5 py-1">Stok Çıkışı (-)</span></td>
-                            <td class="text-center fw-bold text-danger">-2 adet</td>
-                            <td>Ahmet Depo</td>
-                            <td class="text-muted small">Müşteri sevkiyatı (#83921)</td>
-                        </tr>
-                        <tr>
-                            <td class="small text-muted">19-07-2026 16:45</td>
-                            <td><code>GDA-105</code></td>
-                            <td class="fw-semibold">Filtre Kahve 250gr</td>
-                            <td><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-10 rounded-pill px-2.5 py-1">İade</span></td>
-                            <td class="text-center fw-bold text-warning">+1 adet</td>
-                            <td>Geliştirici PHP</td>
-                            <td class="text-muted small">Hasarlı paket iadesi alındı</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Preview Card -->
+            <div class="col-12 col-lg-7">
+                <div class="card custom-card border-0 p-4 text-center">
+                    <h5 class="fw-bold mb-4 text-start">Etiket Önizleme</h5>
+                    
+                    <div class="barcode-card py-4 shadow-sm mb-4">
+                        <div class="small fw-semibold mb-1">STOKTAKİP PRO</div>
+                        <div class="fw-bold small mb-2 text-truncate px-2">Oyuncu Kulaklığı RGB</div>
+                        
+                        <!-- Simulated Barcode Line -->
+                        <div class="d-flex justify-content-center align-items-center bg-dark bg-opacity-10 py-3 mb-2 rounded mx-3">
+                            <i class="bi bi-barcode" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="small font-monospace mb-2 text-muted">ELK-001-9821</div>
+                        
+                        <div class="fw-bold text-primary" style="font-size: 1.2rem;">₺1,250.00</div>
+                    </div>
+                    
+                    <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Yazdırma işlemi tarayıcınızın yazdırma sihirbazını başlatır. Etiket boyutlarını yazdırma ekranından seçebilirsiniz.</small>
+                </div>
             </div>
         </div>
     </main>

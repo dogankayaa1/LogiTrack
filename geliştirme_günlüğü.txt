@@ -111,6 +111,12 @@ kaydedilmektedir.
 -- Baya yorucu ve öğretici oldu.
 --benim hatam if bloklarında gelen postun kontrolünü yapmamak oldu değil mi php suna baktı evet post var sayfanın en basından beri bu postu calıştıralım kime ait önemli değil sıradan yapalım ama isset ve empty kontrolleri php ye şunu dedi bak eger if içinden gecmezse else dön else boş olunca alt koda gec sıyatla devam et bu sayede postu olmayan fonksiyonlar da işlem yapmayacağı için bize kızmayacak.
 
-10.Ürün Listesi & Yönetimi sayfasının yapılması.
+10.Ürün Listesi & Yönetimi sayfasının yapılması. Toplam 2 saat.
 -- functions/kategori.php içerisinde yazdığım kategoriGetir() fonksiyonunu ürün ekleme modalında kullandım. cok basit bir hata yüzünden fonksiyon neden calışmadı diye bakarken sunu fark ettim 1. hata işlemler tablosundaki düzenleme butonundan bakmam hardcode yazılar var yahu niye değişmiyor bu diye kodları yeniden taradım. hata göremeyince yeniden baktım ama yeni ürün ekle butonundan tıkladım kategori kısmını boş gordüm harika demek geldimiş ben yanlış bakmışım deyip ekrana boş gelme nedenine baktım hemen echo kulllanmamışım ekledim echo yu yazdırdım kategori selectinin içine.
 --crud işlemleri tamamlandı bootstrap modallarındaki id sorununu çözmek için ai desteği aldım  if fonksiyonlarının içerisinde yaptığım bir hatayı da fark etmiş oldum bu saydede düzenleme işlemleri tamamlandı. şuan crud işlemlerini yapabildiğim için fitlre bölümünü teknik borç olarak bırakacağım cok fazla foreach döngüsü formların içerisinde POST metodu kullanıp if else döngüleri ile fonksiyonlar ile beraber filtrelemeleri yapabileceğimi düşünüyorum ama projenin hızını yavaşlatacak ve hızlıca diğer alanlara geçmek istiyorum. oop ye gecebilmek için.
+
+11. Tedarikçi Yönetimi 38:00 dakika 
+--veri tabanı hazırlandı
+--Çok ilginc birşey oldu yeni redarikçi ekle fonksiyonu ve if bloğunu hata almadan gercekleştirdim veriler hatası kaydoldu php uyarısı da almadım.
+--crud işlemleri tamamlandı fonksiyonları yazarken artık sıralara fonksiyon cağırmalara daha cok alıştım.
+--kas hafızası oluştukca daha az sorun ve daha hızlı çözüm üretebildiğimi fark ettim.
